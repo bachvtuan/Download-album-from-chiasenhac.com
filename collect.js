@@ -43,44 +43,47 @@ casper.start('http://chiasenhac.com/login.php',function(){
   this.click('input[name="login"]');
 
   casper.wait(5000, function() {
-     this.echo('redirect to album page');
+    this.capture("authentication_result.png", {
+        top: 0,
+        left: 0,
+        width: 1000,
+        height: 800
+    });
+    this.echo('redirect to album page');
   });
 });
 
-
 casper.thenOpen(album_url, function() {
-  listen_links = this.getElementsAttribute('div.playlist_prv tr td span a.musictitle','href');
+  /*listen_links = this.getElementsAttribute('div.playlist_prv tr td span a.musictitle','href');
   casper.echo(listen_links.length);
   casper.echo(listen_links);
+  */
 
   download_links = this.getElementsAttribute('div.playlist_prv tr td span a:first-child','href');
-  casper.echo(download_links.length);
-  casper.echo(download_links);
-
+  casper.echo("This album have "+ download_links.length + " songs");
 });
 
 var index = -1;
 casper.then(function() {
   this.eachThen(download_links, function() { 
-      index++; 
-      casper.echo("Opening "+ download_links[index]);
-      this.thenOpen((download_links[index]), function() {
-        this.echo(this.getTitle()); // display the title of page
-        file_urls = this.getElementsAttribute('div#downloadlink b a','href');
-        for (var i = 0; i < file_urls.length ; i++){
-          for (var j = 0; j < support_qualities.length;j++){
-            if (file_urls[i].indexOf(support_qualities[j]) != -1){
-              result[support_qualities[j]].push(file_urls[i]);
-            }
+    index++; 
+    casper.echo("Opening "+ download_links[index]);
+    this.thenOpen((download_links[index]), function() {
+      this.echo(this.getTitle()); // display the title of page
+      file_urls = this.getElementsAttribute('div#downloadlink b a','href');
+      for (var i = 0; i < file_urls.length ; i++){
+        for (var j = 0; j < support_qualities.length;j++){
+          if (file_urls[i].indexOf(support_qualities[j]) != -1){
+            result[support_qualities[j]].push(file_urls[i]);
           }
         }
-        
-      });
+      }
+    });
   });
 });
 
 casper.then(function(){
-  log("Done, writing to file");
+  casper.echo("Done, writing to file");
   fs.write('data.txt', JSON.stringify(result), 'w');
 });
 
