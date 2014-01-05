@@ -18,7 +18,7 @@ Explain:
  - {5} folder to save album
 
 ##Example:
- casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && python download.py 500 ~/Desktop/the_best_of_piano
+    casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && python download.py 500 ~/Desktop/the_best_of_piano 
 
 Explain:
 --------

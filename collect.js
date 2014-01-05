@@ -12,13 +12,11 @@ var result = {
   '32kbps': []
 };
 
-// --disk-cache=true
-
 var casper = require('casper').create({
   pageSettings: {
-        loadImages:  false,        // do not load images
-        loadPlugins: false         // do not load NPAPI plugins (Flash, Silverlight, ...)
-    }
+    loadImages:  false,// do not load images
+    loadPlugins: false // do not load NPAPI plugins (Flash, Silverlight, ...)
+  }
 });
 
 if (casper.cli.args.length != 3){
@@ -44,10 +42,10 @@ casper.start('http://chiasenhac.com/login.php',function(){
 
   casper.wait(5000, function() {
     this.capture("authentication_result.png", {
-        top: 0,
-        left: 0,
-        width: 1000,
-        height: 800
+      top: 0,
+      left: 0,
+      width: 1000,
+      height: 800
     });
     this.echo('redirect to album page');
   });
@@ -69,7 +67,7 @@ casper.then(function() {
     index++; 
     casper.echo("Opening "+ download_links[index]);
     this.thenOpen((download_links[index]), function() {
-      this.echo(this.getTitle()); // display the title of page
+      //this.echo(this.getTitle()); // display the title of page
       file_urls = this.getElementsAttribute('div#downloadlink b a','href');
       for (var i = 0; i < file_urls.length ; i++){
         for (var j = 0; j < support_qualities.length;j++){
