@@ -16,9 +16,18 @@ Explain:
  - {2},{3}: your username and password are registed to website
  - {4}: Audio quality (32,128,320,500,lossless)
  - {5} folder to save album
-
+-  Wget method: you also can use wget to download the list by command 
+    casperjs --disk-cache=true collect.js {1} {2} {3} && python wget.py {4} && wget -i list.txt -P {5}
+  
 ##Example:
+__Download with python__
+
     casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && python download.py 500 ~/Desktop/the_best_of_piano 
+
+__Download with wget__
+
+    casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && && python wget.py 500 && wget -i list.txt -P ~/Desktop/the_best_of_piano
+
 
 Explain:
 --------
