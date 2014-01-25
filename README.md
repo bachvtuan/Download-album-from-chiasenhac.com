@@ -26,9 +26,10 @@ __Download with python__
 
 __Download with wget__
 
-    casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && && python wget.py 500 && wget -i list.txt -P ~/Desktop/the_best_of_piano
+    casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && python wget.py 500 && wget -i list.txt -P ~/Desktop/the_best_of_piano
 
 
 Explain:
 --------
 More information at [De thoi ma](http://dethoima.com/code-tai-toan-bo-bai-nhac-trong-album-website-chiasenhac-com/)
+
