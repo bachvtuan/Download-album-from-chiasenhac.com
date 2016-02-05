@@ -92,7 +92,7 @@ if __name__ == '__main__':
     #Get file content
     response = urllib2.urlopen(file_url)
     #Create file with write mode
-    output = open(file_name, "w")
+    output = open(file_name, "wb")
     #Write request content to file
     output.write(chunk_read(response, report_hook=chunk_report))
     #Close file
