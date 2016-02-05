@@ -17,15 +17,14 @@ def chunk_read(response, output, chunk_size=8192, report_hook=None):
   chunk_size = 256 * 10240
   
   bytes_so_far = 0
-  data = []
-
+  
   while 1:
     chunk = response.read(chunk_size)
     bytes_so_far += len(chunk)
 
     if not chunk:
       break
-    data += chunk
+    
     if report_hook:
       report_hook(bytes_so_far, total_size,mb_size)
   
@@ -94,7 +93,7 @@ if __name__ == '__main__':
     print "Downloading file_name {0}/{1} files ".format(index, total_files)
 
     #Get file content
-    response = urllib2.urlopen(file_url)
+    response = urllib2.urlopen(file_url.replace(" ","%20"))
     #Create file with write mode
     output = open(file_name, "wb")
     #Write request content to file
