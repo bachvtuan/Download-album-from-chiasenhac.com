@@ -9,10 +9,12 @@ def chunk_report(bytes_so_far, total_size,mb_size):
   if bytes_so_far >= total_size:
     sys.stdout.write('\n')
 
-def chunk_read(response, chunk_size=8192, report_hook=None):
+def chunk_read(response, output, chunk_size=8192, report_hook=None):
   total_size = response.info().getheader('Content-Length').strip()
   total_size = int(total_size)
   mb_size = total_size/float(1024*1024)
+  
+  chunk_size = 256 * 10240
   
   bytes_so_far = 0
   data = []
@@ -26,8 +28,10 @@ def chunk_read(response, chunk_size=8192, report_hook=None):
     data += chunk
     if report_hook:
       report_hook(bytes_so_far, total_size,mb_size)
-
-  return "".join(data)
+  
+    output.write(chunk)
+  #return "".join(data)
+  output.close()
 
 if __name__ == '__main__':
 
@@ -94,9 +98,12 @@ if __name__ == '__main__':
     #Create file with write mode
     output = open(file_name, "wb")
     #Write request content to file
-    output.write(chunk_read(response, report_hook=chunk_report))
+    #output.write(chunk_read(response, report_hook=chunk_report))
     #Close file
-    output.close()
+    #output.close()
+    chunk_read(response,output, report_hook=chunk_report)
+    #Close file
+    #output.close()
 
     index += 1
     
