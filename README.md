@@ -3,6 +3,12 @@ Download entire songs in  album from website chiasenhac.com
 
 This project allow you download whole songs in a album on website http://chiasenhac.com include lossess songs.
 
+Current Working Version:
+-----------------------
+
+- CapserJS(1.1.3)
+- Phantomjs(2.1.1)
+
 How it work :
 -------------
 - You register an account at http://chiasenhac.com( Remember confirm if needed )

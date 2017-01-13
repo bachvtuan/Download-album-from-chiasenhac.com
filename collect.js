@@ -38,7 +38,8 @@ casper.start('http://chiasenhac.com/login.php',function(){
     	document.getElementsByName("username")[0].value = username;
     	document.getElementsByName("password")[0].value = password;
     },username,password);	
-  this.click('input[name="login"]');
+  
+  this.mouse.click('input[name="login"]');
 
   casper.wait(5000, function() {
     this.capture("authentication_result.png", {
