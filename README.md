@@ -37,5 +37,5 @@ __Download with wget__
 
 Explain:
 --------
-More information at [De thoi ma](http://dethoima.com/code-tai-toan-bo-bai-nhac-trong-album-website-chiasenhac-com/)
+More information at [De thoi ma](https://dethoima.info/code-tai-toan-bo-bai-nhac-trong-album-website-chiasenhac-com/)
 
