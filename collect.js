@@ -33,7 +33,7 @@ casper.echo( "Download album :" +album_url + " with username="+ username +" and 
 
 casper.echo("Authentication user");
 
-casper.start('http://chiasenhac.com/login.php',function(){
+casper.start('http://chiasenhac.vn/login.php',function(){
  this.evaluate(function(username,password){
     	document.getElementsByName("username")[0].value = username;
     	document.getElementsByName("password")[0].value = password;
