@@ -3,7 +3,8 @@ import sys,json,os
 if __name__ == '__main__':
 
   if len(sys.argv) != 2:
-    print "wrong argv python download.py quality(32,128,320,500,lossless) folder_save"
+    
+    print "wrong argv python wget.py quality(32,128,320,500,lossless)"
     sys.exit()
 
   quality = sys.argv[1]

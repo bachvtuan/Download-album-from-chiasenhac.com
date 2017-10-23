@@ -69,7 +69,7 @@ casper.then(function() {
     casper.echo("Opening "+ download_links[index]);
     this.thenOpen((download_links[index]), function() {
       //this.echo(this.getTitle()); // display the title of page
-      file_urls = this.getElementsAttribute('div#downloadlink b a','href');
+      file_urls = this.getElementsAttribute('div#downloadlink2 b a','href');
       for (var i = 0; i < file_urls.length ; i++){
         for (var j = 0; j < support_qualities.length;j++){
           if (file_urls[i].indexOf(support_qualities[j]) != -1){
