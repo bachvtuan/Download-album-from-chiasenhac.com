@@ -1,5 +1,6 @@
 import urllib2,sys,json,os
 import urlparse
+import urllib
 
 def chunk_report(bytes_so_far, total_size,mb_size):
 
@@ -95,11 +96,10 @@ if __name__ == '__main__':
     #download2.php?v1=1837&v2=1&v3=1YHG2AH-MDDGbMMJ&v4=m4a&v5=Anh%20Trai%20Cua%20Em%20-%20Binh%20Minh%20Vu [500kbps_M4A].m4a 
     # => Anh%20Trai%20Cua%20Em%20-%20Binh%20Minh%20Vu [500kbps_M4A].m4a
     file_name =  str(index) + ". " + urllib2.unquote(file_name)
-    parse = urlparse.urlsplit(file_url)
     
-    query = urlparse.parse_qs(urlparse.urlsplit(file_url).query)
-    temp_dict = dict(query)
-    file_name = str(index) + ". "  + temp_dict["v5"][0]
+    temp = file_url.split("/")
+    
+    file_name = str(index) + ". "  + urllib.unquote(temp[len(temp)-1])
     
 
     #Remove uncessary string at the end of file
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     
     file_name =  folder + "/" + file_name
 
-    print "Downloading file_name {0}/{1} files ".format(index, total_files)
+    print "Downloading {0} {1}/{2} files ".format(file_name, index, total_files)
 
     #Get file content
     response = urllib2.urlopen(file_url.replace(" ","%20"))
