@@ -58,11 +58,9 @@ casper.then(function() {
       //this.echo(this.getTitle()); // display the title of page
       // download_status
       file_urls = this.getElementsAttribute('ul.download_status li a','href');
-      console.log("file_urls",JSON.stringify(file_urls))
+      // console.log("file_urls",JSON.stringify(file_urls))
       links = this.evaluate(getLinks);
       texts = this.evaluate(getTexts);
-      // console.log("links",links)
-      // console.log("texts",texts)
       for(var i = 0; i < links.length; i++){
           for (var j = 0; j < support_qualities.length;j++){
             if (texts[i].indexOf(support_qualities[j]) != -1){
