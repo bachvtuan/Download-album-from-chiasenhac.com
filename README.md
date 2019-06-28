@@ -13,29 +13,28 @@ How it work :
 -------------
 - You register an account at http://chiasenhac.com( Remember confirm if needed )
 - Download phantomjs and casperjs, setup properly. You can check casperjs work by command "casperjs --version"
-- Pick any alblum url at chiasenhac.com such as "http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html"
+- Pick any alblum url at chiasenhac.com such as "https://chiasenhac.vn/nghe-album/An-All-Night-Dont-Sleep-Vol1~Y3NuX2FsYnVtfjIwMQ==.html"
 -Install python 2.7 and install additional module "urllib2"
-- Run command casperjs --disk-cache=true collect.js {1} {2} {3} && python download.py {4} {5} 
+- Run command casperjs --disk-cache=true collect.js {1} && python download.py {2} {3} 
 Explain:
 
- - {1}: album url such as http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html
- - {2},{3}: your username and password are registed to website
- - {4}: Audio quality (32,128,320,500,lossless)
- - {5} folder to save album
+ - {1}: album url such as https://chiasenhac.vn/nghe-album/An-All-Night-Dont-Sleep-Vol1~Y3NuX2FsYnVtfjIwMQ==.html
+ - {2}: Audio quality (128,320,500)
+ - {3} folder to save album
 -  Wget method: you also can use wget to download the list by command 
-    casperjs --disk-cache=true collect.js {1} {2} {3} && python wget.py {4} && wget -i list.txt -P {5}
+    casperjs --disk-cache=true collect.js {1} && python wget.py {2} && wget -i list.txt -P {3}
   
 ##Example:
 __Download with python__
 
-    casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && python download.py 500 ~/Desktop/the_best_of_piano 
+    casperjs --disk-cache=true collect.js https://chiasenhac.vn/nghe-album/An-All-Night-Dont-Sleep-Vol1~Y3NuX2FsYnVtfjIwMQ==.html && python download.py 500 ~/Desktop/An-All-Night-Dont-Sleep/vol1
 
 __Download with wget__
 
-    casperjs --disk-cache=true collect.js http://playlist.chiasenhac.com/nghe-album/surrender~omar-akram~1015073.html foo bar && python wget.py 500 && wget -i list.txt -P ~/Desktop/the_best_of_piano
+    casperjs --disk-cache=true collect.js https://chiasenhac.vn/nghe-album/An-All-Night-Dont-Sleep-Vol1~Y3NuX2FsYnVtfjIwMQ==.html && python wget.py 500 && wget -i list.txt -P ~/Desktop/An-All-Night-Dont-Sleep/vol1
 
 
 Explain:
 --------
-More information at [De thoi ma](https://dethoima.info/code-tai-toan-bo-bai-nhac-trong-album-website-chiasenhac-com/)
+More information at [De thoi ma](https://dethoima.cf/code-tai-toan-bo-bai-nhac-trong-album-website-chiasenhac-com/)
 

@@ -10,29 +10,19 @@ if __name__ == '__main__':
   quality = sys.argv[1]
   # folder = sys.argv[2]
 
-  assert quality in ['32','128','320','500','lossless']
+  assert quality in ['128','320','500']
   
   mapping = {
-    '32' : {
-      'full': '32kbps',
-      'find' : ' [M4A 32kbps]'
-    },
+    
     '128' : {
-      'full': '128kbps',
-      'find' : ' [MP3 128kbps]'
+      'full': '128kbps'
     },
     '320' : {
-      'full': '320kbps',
-      'find' : ' [MP3 320kbps]'
+      'full': '320kbps'
     },
     '500' : {
-      'full': '500kbps',
-      'find' : ' [M4A 500kbps]'
-    },
-    'lossless' : {
-      'full': 'Lossless',
-      'find' : ' [FLAC Lossless]'
-    },
+      'full': '500kbps'
+    }
   }
 
   file = open('data.txt', 'r')
